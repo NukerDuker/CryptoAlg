@@ -1,6 +1,6 @@
 public class Encrypt {
 
-    protected final Character[] dictionary = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'};
+    protected final Character[] dictionary = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', ',','.','!','?','&','.', ' '};
     private final int key;
     protected final StringBuilder builderStr;
     protected String toEncrypt;
@@ -18,7 +18,7 @@ public class Encrypt {
 
             char cryptLetter = toEncrypt.toLowerCase().charAt(i);
 
-            if (contains(cryptLetter) || cryptLetter == ' ' || cryptLetter == '-') {
+            if (contains(cryptLetter)) {
 
                 cryptLetter = changeLetter(cryptLetter);
                 if (cryptLetter == '#') {

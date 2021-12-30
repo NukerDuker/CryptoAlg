@@ -12,11 +12,14 @@ public class Decrypt extends Encrypt {
     public String decrypt() {
         for (int i = 0; i < toEncrypt.length(); i++) {
             char cryptLetter = decryptLetter(toEncrypt.toLowerCase().charAt(i));
-            if (cryptLetter != '/') {
-                builderStr.append(cryptLetter);
-            } else {
-                builderStr.append('*');
+            if(contains(cryptLetter)){
+                if (cryptLetter != '#') {
+                    builderStr.append(cryptLetter);
+                } else {
+                    builderStr.append('*');
+                }
             }
+
         }
         return builderStr.toString();
     }
@@ -34,7 +37,7 @@ public class Decrypt extends Encrypt {
                 return dictionary[index];
             }
         }
-        return '/';
+        return '#';
     }
 
     @Override
