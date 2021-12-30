@@ -1,7 +1,6 @@
 public class Decrypt extends Encrypt {
 
     private final int key;
-    private String toDecrypt;
 
     Decrypt(int key, String str) {
         super(key, str);
@@ -11,8 +10,10 @@ public class Decrypt extends Encrypt {
 
     public String decrypt() {
         for (int i = 0; i < toEncrypt.length(); i++) {
+
             char cryptLetter = decryptLetter(toEncrypt.toLowerCase().charAt(i));
-            if(contains(cryptLetter)){
+
+            if (contains(cryptLetter)) {
                 if (cryptLetter != '#') {
                     builderStr.append(cryptLetter);
                 } else {
@@ -25,8 +26,11 @@ public class Decrypt extends Encrypt {
     }
 
     private char decryptLetter(char a) {
-        int index = 0;
+
+        int index;
+
         for (int j = 0; j < dictionary.length; j++) {
+
             if (a == ' ') {
                 return ' ';
             } else if (a == dictionary[j]) {
@@ -36,6 +40,7 @@ public class Decrypt extends Encrypt {
                 }
                 return dictionary[index];
             }
+
         }
         return '#';
     }
