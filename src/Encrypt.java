@@ -1,7 +1,6 @@
 public class Encrypt {
 
-    protected final Character[] letters = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-    protected final Integer[] integers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    protected final Character[] dictionary = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'};
     private final int key;
     protected final StringBuilder builderStr;
     protected String toEncrypt;
@@ -38,16 +37,16 @@ public class Encrypt {
 
         int index = 0;
 
-        for (int j = 0; j < letters.length; j++) {
+        for (int j = 0; j < dictionary.length; j++) {
 
             if (a == ' ') {
                 return ' ';
-            } else if (a == letters[j]) {
+            } else if (a == dictionary[j]) {
                 index = j - key;
                 if (index < 0) {
-                    index += letters.length;
+                    index += dictionary.length;
                 }
-                return letters[index];
+                return dictionary[index];
             }
 
         }
@@ -56,7 +55,7 @@ public class Encrypt {
 
     public boolean contains(char letter) {
 
-        for (Character character : letters) {
+        for (Character character : dictionary) {
 
             if (character == letter) {
                 return true;

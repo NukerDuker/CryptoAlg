@@ -23,15 +23,15 @@ public class Decrypt extends Encrypt {
 
     private char decryptLetter(char a) {
         int index = 0;
-        for (int j = 0; j < letters.length; j++) {
+        for (int j = 0; j < dictionary.length; j++) {
             if (a == ' ') {
                 return ' ';
-            } else if (a == letters[j]) {
+            } else if (a == dictionary[j]) {
                 index = j + key;
-                if (index > letters.length - 1) {
-                    index -= letters.length;
+                if (index > dictionary.length - 1) {
+                    index -= dictionary.length;
                 }
-                return letters[index];
+                return dictionary[index];
             }
         }
         return '/';
